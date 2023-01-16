@@ -37,10 +37,13 @@ class UserClass(GenericAPIView):
             return Response(response_data, status[0])
 
         user = {
-            'username': username,
+            'username': req['login'],
             'name': req['name'],
             'bio': req['bio'],
-            'twitter_username': req['twitter_username'],
+            'location': req['location'],
+            'twitter_url': req['twitter_username'],
+            'github_url': 'https://www.github.com/'+req['login'],
+            'image_url': req['avatar_url'],
             'repos_url': req['repos_url']
         }
 
